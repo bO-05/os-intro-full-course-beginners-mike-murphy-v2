@@ -1,0 +1,59 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Algorithms
+
+Page replacement algorithms play a crucial role in managing memory in operating systems. When the system runs out of free memory frames, it must decide which page to remove from memory to make room for a new page. The goal is to minimize the number of page faults and optimize system performance.
+
+<Callout type="info">
+A page fault occurs when a process tries to access a page that is not currently in memory and must be retrieved from the backing store (e.g., hard disk).
+</Callout>
+
+Here are some commonly used page replacement algorithms:
+
+## First-In-First-Out (FIFO)
+
+The FIFO algorithm replaces the page that has been in memory the longest. It maintains a queue of pages, with the oldest page at the front of the queue. When a page fault occurs, the page at the front of the queue is removed, and the new page is added to the rear.
+
+<Steps>
+### Step 1
+Pages are loaded into memory in the order they are requested.
+
+### Step 2
+When a page fault occurs, the oldest page in memory (the one at the front of the queue) is replaced by the new page.
+</Steps>
+
+## Optimal Page Replacement
+
+The optimal page replacement algorithm replaces the page that will not be used for the longest period of time in the future. This algorithm is purely theoretical and cannot be implemented in practice because it requires knowledge of future page references.
+
+```mermaid
+graph LR
+A[Page 1] --> B[Page 2]
+B --> C[Page 3]
+C --> D[Page 4]
+D --> E[Page 1]
+E --> F[Page 5]
+```
+
+## Least Recently Used (LRU)
+
+The LRU algorithm replaces the page that has not been used for the longest time. It keeps track of the last access time for each page and replaces the page with the oldest access time when a page fault occurs.
+
+<Callout type="warning">
+Implementing the LRU algorithm can be expensive, as it requires updating the last access time for each page on every memory reference.
+</Callout>
+
+## Clock Algorithm
+
+The clock algorithm is an approximation of the LRU algorithm. It maintains a circular list of pages and a pointer (like a clock hand) that moves through the list. Each page has a reference bit that is set when the page is accessed. When a page fault occurs, the algorithm replaces the first page encountered with a reference bit of 0, starting from the current position of the pointer.
+
+The clock algorithm can be represented using the following equation:
+
+$R(t) = (R(t - 1) + H) \mod N$
+
+where:
+- $R(t)$ is the position of the pointer at time $t$
+- $H$ is the number of page faults that have occurred
+- $N$ is the total number of pages
+
+For more information on page replacement algorithms and their performance analysis, see the [Performance Analysis](/object-oriented-implementations-and-page-replacement/page-replacement/performance-analysis) subsection.

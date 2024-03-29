@@ -1,0 +1,66 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Object-Oriented Design
+
+Object-oriented design (OOD) is a fundamental approach to software design that focuses on organizing a system around objects, which are instances of classes. OOD aims to create modular, reusable, and maintainable code by leveraging the principles of abstraction, encapsulation, inheritance, and polymorphism.
+
+<Callout type="info">
+Object-oriented design is widely used in modern software development due to its ability to manage complexity and promote code reusability.
+</Callout>
+
+The main concepts of object-oriented design include:
+
+- **Classes**: A class is a blueprint or template that defines the properties (attributes) and behaviors (methods) of an object. It encapsulates data and functions that operate on that data.
+
+- **Objects**: An object is an instance of a class. It has its own state (defined by its attributes) and can perform actions (defined by its methods).
+
+- [**Abstraction**](/virtual-memory-and-object-oriented-design/object-oriented-design/abstraction): Abstraction involves simplifying complex systems by breaking them down into smaller, more manageable parts. It allows developers to focus on essential features while hiding unnecessary details.
+
+- **Encapsulation**: Encapsulation is the practice of bundling data and methods that operate on that data within a class, and restricting direct access to the data from outside the class. This helps maintain data integrity and reduces dependencies between classes.
+
+- [**Inheritance**](/virtual-memory-and-object-oriented-design/object-oriented-design/inheritance): Inheritance is a mechanism that allows a new class to be based on an existing class, inheriting its attributes and methods. This promotes code reuse and allows for the creation of hierarchical relationships between classes.
+
+- **Polymorphism**: Polymorphism allows objects of different classes to be treated as objects of a common parent class. This enables the creation of flexible and extensible code, as methods can be defined in the parent class and overridden in the child classes as needed.
+
+Here's a simple example of a class in Python:
+
+```python
+class Car:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+        
+    def start_engine(self):
+        print(f"The {self.make} {self.model}'s engine is starting.")
+```
+
+In this example, `Car` is a class with attributes `make`, `model`, and `year`, and a method `start_engine()`. You can create objects (instances) of the `Car` class like this:
+
+```python
+my_car = Car("Toyota", "Camry", 2022)
+my_car.start_engine()
+```
+
+Output:
+```
+The Toyota Camry's engine is starting.
+```
+
+<Steps>
+
+### Step 1
+Identify the main objects and their attributes and methods in your system.
+
+### Step 2
+Create classes for each object, defining their attributes and methods.
+
+### Step 3
+Establish relationships between classes using inheritance and composition.
+
+### Step 4
+Create instances of the classes (objects) and test their functionality.
+
+</Steps>
+
+By following the principles of object-oriented design, you can create modular, reusable, and maintainable code that is easier to understand, modify, and extend over time.

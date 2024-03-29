@@ -1,0 +1,90 @@
+Selected outline:
+
+- 1. Overview of Operating Systems
+- 2. Hardware Resources
+-- 1. CPU
+--- 1. CPU Scheduling
+--- 2. CPU Architecture
+-- 2. Memory
+--- 1. Memory Management
+--- 2. Virtual Memory
+-- 3. Disk Input & Output
+--- 1. I/O Hardware
+--- 2. I/O Software
+- 3. Development Cycles and Requirements Analysis
+-- 1. Development Cycles
+--- 1. Waterfall Model
+--- 2. Agile Model
+-- 2. Requirements Analysis
+--- 1. Functional Requirements
+--- 2. Non-Functional Requirements
+- 4. CPU Features and Kernel Architectures
+-- 1. CPU Features
+--- 1. Pipelining
+--- 2. Branch Prediction
+-- 2. Kernel Architectures
+--- 1. Monolithic Kernel
+--- 2. Microkernel
+- 5. UML and Use Cases
+-- 1. UML Activity Diagrams
+--- 1. Notation
+--- 2. Examples
+-- 2. Use Cases
+--- 1. Use Case Diagrams
+--- 2. Use Case Specifications
+- 6. Interrupts and Interrupt Handling
+-- 1. Interrupts
+--- 1. Hardware Interrupts
+--- 2. Software Interrupts
+-- 2. Interrupt Handling
+--- 1. Interrupt Service Routines
+--- 2. Interrupt Priority Levels
+- 7. UML State Diagrams and Dynamic Memory Allocation
+-- 1. UML State Diagrams
+--- 1. State Representation
+--- 2. Transition Representation
+-- 2. Dynamic Memory Allocation
+--- 1. Malloc and Free
+--- 2. Memory Allocation Algorithms
+- 8. Memory Resources and Paging
+-- 1. Memory Resources
+--- 1. Physical Memory
+--- 2. Virtual Memory
+-- 2. Paging
+--- 1. Paging Concept
+--- 2. Page Table Management
+- 9. Memory Protection and Page Tables
+-- 1. Memory Protection
+--- 1. Access Rights
+--- 2. Segmentation
+-- 2. Page Tables
+--- 1. Page Table Structure
+--- 2. Translation Lookaside Buffer (TLB)
+- 10. User-Driven Design and UML Class Diagrams
+-- 1. User-Driven Design
+--- 1. User Requirements
+--- 2. Prototyping
+-- 2. UML Class Diagrams
+--- 1. Class Notation
+--- 2. Class Relationships
+- 11. Virtual Memory and Object-Oriented Design
+-- 1. Virtual Memory
+--- 1. Address Translation
+--- 2. Demand Paging
+-- 2. Object-Oriented Design
+--- 1. Abstraction
+--- 2. Inheritance
+- 12. Object-Oriented Implementations and Page Replacement
+-- 1. Object-Oriented Implementations
+--- 1. Encapsulation
+--- 2. Polymorphism
+-- 2. Page Replacement
+--- 1. Algorithms
+--- 2. Performance Analysis
+- 13. Process Management
+-- 1. Processes
+--- 1. Process Concept
+--- 2. Process States
+-- 2. Process Management Techniques
+--- 1. Scheduling Algorithms
+--- 2. Synchronization

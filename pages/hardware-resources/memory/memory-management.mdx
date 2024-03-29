@@ -1,0 +1,68 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Memory Management
+
+Memory management is a crucial aspect of operating systems, responsible for efficiently allocating and deallocating memory resources to processes. It involves various techniques and algorithms to ensure optimal utilization of the available memory while maintaining system stability and performance.
+
+## Memory Allocation
+
+The primary task of memory management is to allocate memory to processes when they are created and deallocate it when they terminate. The operating system must keep track of which parts of memory are currently being used and which are free.
+
+<Callout type="info">
+The memory allocation process can be divided into two main categories: contiguous allocation and non-contiguous allocation.
+</Callout>
+
+### Contiguous Memory Allocation
+
+In contiguous memory allocation, each process is allocated a single, contiguous block of memory. This simplifies memory management but can lead to fragmentation issues.
+
+- **Fixed Partitioning**: The memory is divided into fixed-size partitions, and each process is assigned to a partition based on its size.
+- **Dynamic Partitioning**: The memory is divided into variable-size partitions, and each process is allocated memory based on its specific requirements.
+
+### Non-Contiguous Memory Allocation
+
+Non-contiguous memory allocation allows a process to be allocated memory from multiple, non-contiguous blocks. This helps in reducing fragmentation and improves memory utilization.
+
+- **Paging**: The memory is divided into fixed-size blocks called pages, and each process is allocated memory in terms of pages. Learn more about [paging](/hardware-resources/memory/memory-management/paging).
+- **Segmentation**: The memory is divided into variable-size segments, and each process is allocated memory based on its logical structure. Learn more about [segmentation](/hardware-resources/memory/memory-management/segmentation).
+
+## Memory Protection
+
+Memory protection is an essential aspect of memory management, which ensures that processes cannot access or modify memory allocated to other processes. This is achieved through various mechanisms:
+
+- **Base and Limit Registers**: Each process is associated with a base register (containing the starting address of its memory) and a limit register (containing the size of its memory). Any memory access outside the defined range is prohibited.
+- **Virtual Memory**: The use of [virtual memory](/hardware-resources/memory/virtual-memory) provides an additional layer of protection by mapping virtual addresses to physical addresses, allowing each process to have its own isolated address space.
+
+## Memory Allocation Algorithms
+
+Several algorithms are used for memory allocation to optimize memory usage and minimize fragmentation:
+
+- **First-Fit**: Allocates the first free block of memory that is large enough to accommodate the process.
+- **Best-Fit**: Allocates the smallest free block of memory that is large enough to accommodate the process, minimizing wasted space.
+- **Worst-Fit**: Allocates the largest free block of memory, with the idea that the remaining space will be more useful for future allocations.
+
+<Steps>
+
+### Step 1: Process requests memory
+When a process is created or requires additional memory, it sends a request to the operating system, specifying the amount of memory needed.
+
+### Step 2: OS checks available memory
+The operating system checks the availability of free memory blocks using the memory allocation algorithms mentioned above.
+
+### Step 3: Memory is allocated
+If a suitable free block is found, the operating system allocates the memory to the process and updates its internal data structures to reflect the allocation.
+
+### Step 4: Process uses the allocated memory
+The process can now use the allocated memory for its operations, such as storing variables, creating data structures, or executing code.
+
+### Step 5: Memory is deallocated
+When the process terminates or explicitly frees the allocated memory, the operating system reclaims the memory and marks it as available for future allocations.
+
+</Steps>
+
+Effective memory management is essential for maintaining system stability, performance, and resource utilization. By employing various techniques and algorithms, operating systems ensure that processes have access to the memory they need while preventing conflicts and optimizing overall system performance.
+
+For more information on related topics, see:
+- [Virtual Memory](/hardware-resources/memory/virtual-memory)
+- [Paging](/hardware-resources/memory/memory-management/paging)
+- [Segmentation](/hardware-resources/memory/memory-management/segmentation)

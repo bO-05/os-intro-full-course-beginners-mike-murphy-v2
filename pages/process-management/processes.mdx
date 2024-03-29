@@ -1,0 +1,115 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Processes
+
+In operating systems, a **process** is an instance of a program that is being executed. It is a fundamental concept that plays a crucial role in modern computing. Processes are the primary units of work in an operating system, and they are responsible for executing the instructions of a program.
+
+## What is a Process?
+
+A process is more than just a program code. It encompasses the program's instructions, data, and execution context. Each process has its own memory space, which includes the program code, data, heap, and stack. Additionally, processes have their own system resources, such as file handles and network sockets.
+
+<Callout type="info">
+  A process is often referred to as a "running program" or a "program in execution."
+</Callout>
+
+## Process Lifecycle
+
+Processes go through various stages during their lifetime. The typical stages of a process lifecycle include:
+
+1. Creation
+2. Scheduling
+3. Execution
+4. Termination
+
+The operating system is responsible for managing the lifecycle of processes. It creates processes, schedules them for execution, and cleans up their resources when they terminate.
+
+## Process Control Block (PCB)
+
+The operating system maintains a data structure called the Process Control Block (PCB) for each process. The PCB contains essential information about the process, such as:
+
+- Process ID (PID)
+- Process state
+- Program counter
+- CPU registers
+- Memory management information
+- I/O status information
+
+The PCB allows the operating system to keep track of the state and resources associated with each process.
+
+## Process States
+
+Processes can be in different states throughout their lifecycle. The most common process states are:
+
+- [New](/process-management/processes/process-states#new-state)
+- [Ready](/process-management/processes/process-states#ready-state)
+- [Running](/process-management/processes/process-states#running-state)
+- [Waiting](/process-management/processes/process-states#waiting-state)
+- [Terminated](/process-management/processes/process-states#terminated-state)
+
+The operating system transitions processes between these states based on various events and scheduling decisions. For more details on process states and their transitions, refer to the [Process States](/process-management/processes/process-states) subsection.
+
+## Process Creation
+
+Processes are created through the `fork()` system call in Unix-like operating systems. The `fork()` system call creates a new process by duplicating the calling process. The new process, called the child process, is an exact copy of the parent process, except for a few details such as the process ID and parent process ID.
+
+<Steps>
+### Step 1: Parent process calls `fork()`
+
+```c
+int pid = fork();
+```
+
+### Step 2: Operating system creates a new child process
+
+The child process is an exact copy of the parent process, with a new process ID.
+
+### Step 3: Execution continues in both parent and child processes
+
+```c
+if (pid == 0) {
+    // Child process
+    // ...
+} else if (pid > 0) {
+    // Parent process
+    // ...
+} else {
+    // Fork failed
+    // ...
+}
+```
+</Steps>
+
+After the `fork()` system call, both the parent and child processes continue execution from the next instruction. The return value of `fork()` allows the processes to determine their role (parent or child) and take appropriate actions.
+
+## Process Termination
+
+Processes terminate when they complete their execution or when they are explicitly killed. When a process terminates, the operating system cleans up its resources and removes its PCB from the system.
+
+Processes can terminate voluntarily by calling the `exit()` system call. They can also be terminated involuntarily by the operating system due to reasons such as receiving a signal (e.g., `SIGKILL`), encountering an unhandled exception, or reaching a resource limit.
+
+<Callout type="warning">
+  Orphan processes may arise when a parent process terminates before its child processes. These child processes are then adopted by the init process (PID 1).
+</Callout>
+
+## Inter-Process Communication (IPC)
+
+Processes often need to communicate with each other to exchange data or coordinate their activities. The operating system provides various Inter-Process Communication (IPC) mechanisms to facilitate communication between processes. Some common IPC mechanisms include:
+
+- Pipes
+- Named Pipes (FIFOs)
+- Message Queues
+- Shared Memory
+- Sockets
+
+IPC mechanisms allow processes to exchange data, synchronize their actions, and coordinate their execution.
+
+## Conclusion
+
+Processes are a fundamental concept in operating systems. They represent the basic units of execution and resource ownership. The operating system manages the lifecycle of processes, including their creation, scheduling, execution, and termination. Understanding processes and their management is crucial for developing efficient and reliable software systems.
+
+In the following subsections, we will dive deeper into specific aspects of processes:
+
+- [Process Concept](/process-management/processes/process-concept)
+- [Process States](/process-management/processes/process-states)
+
+Stay tuned for more detailed explanations and examples!

@@ -1,0 +1,61 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Branch Prediction
+
+Branch prediction is a technique used in modern CPU architectures to improve performance by predicting the outcome of branch instructions before they are executed. By accurately predicting the direction of branches, the CPU can minimize pipeline stalls and avoid wasting cycles on executing instructions that will not be needed.
+
+## How Branch Prediction Works
+
+When a branch instruction is encountered, the CPU must determine whether the branch will be taken or not. This decision is based on the condition associated with the branch. However, evaluating the condition and determining the branch direction takes time, which can cause the CPU pipeline to stall.
+
+Branch prediction aims to mitigate this problem by predicting the likely outcome of the branch based on historical data and heuristics. The CPU maintains a branch prediction unit, which consists of structures like branch history tables and pattern history tables.
+
+<Steps>
+### Step 1: Branch History Table
+
+The branch history table (BHT) keeps track of the recent history of branch outcomes. Each entry in the BHT corresponds to a specific branch instruction and stores the history of its past behavior (taken or not taken).
+
+### Step 2: Pattern History Table
+
+The pattern history table (PHT) is used in conjunction with the BHT. It captures the correlation between the history of branch outcomes and the actual branch direction. The PHT is indexed by a combination of the branch address and the history from the BHT.
+
+### Step 3: Prediction
+
+When a branch instruction is fetched, the CPU uses the branch address to index into the BHT and retrieve the corresponding history. It then combines the history with the branch address to index into the PHT and obtain the predicted branch direction (taken or not taken).
+
+### Step 4: Speculation
+
+Based on the predicted branch direction, the CPU speculatively fetches and executes instructions from the predicted path. If the prediction is correct, the CPU continues executing the speculative instructions, improving performance.
+
+### Step 5: Resolution and Update
+
+When the actual branch condition is evaluated, the CPU compares the predicted direction with the actual direction. If the prediction was correct, the CPU continues executing the speculative instructions. If the prediction was incorrect, the CPU discards the speculative instructions and updates the BHT and PHT to improve future predictions.
+</Steps>
+
+## Types of Branch Predictors
+
+There are different types of branch predictors used in modern CPUs:
+
+- **Static Branch Predictors**: These predictors make predictions based on fixed heuristics, such as always predicting backward branches as taken and forward branches as not taken.
+
+- **Dynamic Branch Predictors**: These predictors make predictions based on the runtime behavior of branches. They use structures like the BHT and PHT to capture and learn from the historical branch outcomes.
+
+<Callout type="info">
+Modern CPUs often employ advanced branch prediction mechanisms, such as two-level adaptive predictors or neural branch predictors, which combine multiple prediction techniques to improve accuracy.
+</Callout>
+
+## Impact on Performance
+
+Branch prediction plays a crucial role in improving CPU performance. By accurately predicting branch outcomes, the CPU can avoid pipeline stalls and execute instructions speculatively, reducing the overall execution time of programs.
+
+However, branch mispredictions can have a significant impact on performance. When a branch is mispredicted, the CPU must discard the speculatively executed instructions and fetch instructions from the correct path. This results in wasted cycles and can lead to performance degradation.
+
+<Callout type="warning">
+Mispredicted branches can be a bottleneck in performance-critical code. Techniques like branch hinting and branch optimization can be used to assist the branch predictor and improve prediction accuracy.
+</Callout>
+
+To learn more about CPU features and their impact on operating system performance, you can explore the following sections:
+
+- [Pipelining](/cpu-features-and-kernel-architectures/cpu-features/pipelining)
+- [Monolithic Kernel](/cpu-features-and-kernel-architectures/kernel-architectures/monolithic-kernel)
+- [Microkernel](/cpu-features-and-kernel-architectures/kernel-architectures/microkernel)

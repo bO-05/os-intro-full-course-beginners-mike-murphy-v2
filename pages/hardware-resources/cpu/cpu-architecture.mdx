@@ -1,0 +1,83 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# CPU Architecture
+
+The central processing unit (CPU) is the brain of a computer system, responsible for executing instructions and performing calculations. The architecture of a CPU plays a crucial role in determining its performance, power consumption, and compatibility with various operating systems and software applications.
+
+In this section, we will explore the key components of CPU architecture and their impact on operating system design.
+
+## Instruction Set Architecture (ISA)
+
+The instruction set architecture (ISA) defines the set of instructions that a CPU can execute. It serves as the interface between the hardware and software, allowing programmers to write code that can be executed on a specific CPU.
+
+<Callout type="info">
+The ISA determines the complexity of the CPU, as well as its compatibility with different operating systems and programming languages.
+</Callout>
+
+Some common ISAs include:
+
+- x86 (Intel and AMD)
+- ARM (Advanced RISC Machine)
+- MIPS (Microprocessor without Interlocked Pipelined Stages)
+- RISC-V (Reduced Instruction Set Computing - V)
+
+## Registers
+
+Registers are high-speed storage locations within the CPU that hold data and instructions currently being processed. The number and size of registers vary depending on the CPU architecture.
+
+<Steps>
+### General-purpose registers
+
+These registers can store any type of data and are used for arithmetic and logical operations.
+
+### Special-purpose registers
+
+These registers have specific functions, such as the program counter (PC), which holds the address of the next instruction to be executed, and the stack pointer (SP), which points to the top of the stack.
+</Steps>
+
+## Cache Memory
+
+Cache memory is a small, fast memory located close to the CPU that stores frequently accessed data and instructions. It helps to reduce the average time required to access data from main memory, improving overall system performance.
+
+<Steps>
+### Level 1 (L1) cache
+
+The fastest and smallest cache, typically integrated into the CPU itself.
+
+### Level 2 (L2) cache
+
+Larger and slower than L1 cache, but still faster than main memory.
+
+### Level 3 (L3) cache
+
+The largest and slowest cache, often shared among multiple CPU cores.
+</Steps>
+
+The organization and management of cache memory are crucial aspects of CPU architecture that impact operating system design. For more information on memory management, see the [Memory](/hardware-resources/memory) section.
+
+## Pipelining
+
+Pipelining is a technique used to improve CPU performance by allowing multiple instructions to be executed simultaneously. It breaks down the instruction execution process into several stages, such as fetch, decode, execute, and write-back.
+
+```mermaid
+graph LR
+A[Fetch] --> B[Decode] --> C[Execute] --> D[Write-back]
+```
+
+By overlapping the execution of multiple instructions, pipelining can significantly increase the throughput of the CPU. However, it also introduces complexities such as data dependencies and branch prediction, which must be handled by the operating system and the CPU itself. For more information on these topics, see the [Pipelining](/hardware-resources/cpu/pipelining) and [Branch Prediction](/hardware-resources/cpu/branch-prediction) subsections.
+
+## Multi-core and Hyper-threading
+
+Modern CPUs often feature multiple cores and hyper-threading to further enhance performance. Multi-core CPUs have two or more independent processing units (cores) that can execute instructions simultaneously, while hyper-threading allows a single core to execute multiple threads concurrently.
+
+<Callout type="info">
+The presence of multiple cores and hyper-threading requires operating systems to efficiently manage and schedule tasks across these resources to maximize performance and ensure fair resource allocation.
+</Callout>
+
+The number of cores in a CPU can be represented mathematically as:
+
+$N_{cores} = \frac{N_{transistors}}{N_{transistors per core}}$
+
+where $N_{cores}$ is the number of cores, $N_{transistors}$ is the total number of transistors in the CPU, and $N_{transistors per core}$ is the number of transistors required for each core.
+
+Understanding CPU architecture is essential for operating system designers and developers, as it directly impacts the performance, compatibility, and resource management capabilities of the system. By leveraging the features and optimizations provided by modern CPU architectures, operating systems can deliver efficient and responsive computing experiences to users.

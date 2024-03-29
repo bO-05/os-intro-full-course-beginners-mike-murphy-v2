@@ -1,0 +1,78 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Functional Requirements
+
+Functional requirements are a critical component of the software development process. They define **what** the system should do, specifying the expected behavior and functionality of the software. Functional requirements capture the core features and capabilities that the system must possess to meet the needs of its users and stakeholders.
+
+<Callout type="info">
+Functional requirements should be clear, concise, and testable. They serve as a basis for system design, implementation, and validation.
+</Callout>
+
+## Characteristics of Functional Requirements
+
+Functional requirements exhibit several key characteristics:
+
+- **Specificity**: Functional requirements should be specific and unambiguous, leaving no room for interpretation.
+- **Measurability**: It should be possible to determine whether a functional requirement has been met through testing or verification.
+- **Completeness**: Functional requirements should cover all the necessary functionalities of the system.
+- **Consistency**: Functional requirements should not contradict each other or introduce conflicts.
+
+## Identifying Functional Requirements
+
+Identifying functional requirements involves gathering input from various stakeholders, including users, business analysts, and domain experts. The following steps can be followed to identify functional requirements effectively:
+
+<Steps>
+
+### Step 1: Stakeholder Interviews
+
+Conduct interviews with stakeholders to understand their needs, expectations, and desired functionalities. Ask open-ended questions and encourage them to provide detailed insights.
+
+### Step 2: Use Case Analysis
+
+Develop [use cases](/development-cycles-and-requirements-analysis/requirements-analysis/use-cases) to capture the interactions between the system and its users. Use cases help in identifying the key functionalities and scenarios that the system should support.
+
+### Step 3: Requirements Workshops
+
+Organize requirements workshops where stakeholders can collaborate and brainstorm functional requirements. Use techniques like story mapping or requirements prioritization to identify and prioritize the most critical functionalities.
+
+### Step 4: Prototyping
+
+Create prototypes or mockups of the system to visualize and validate functional requirements. Prototypes help in gathering feedback and refining the requirements iteratively.
+
+</Steps>
+
+## Documenting Functional Requirements
+
+Functional requirements should be documented in a clear and structured manner. The documentation should include:
+
+- A unique identifier for each requirement
+- A description of the functionality
+- Acceptance criteria to determine when the requirement is met
+- Any dependencies or constraints associated with the requirement
+
+Here's an example of a functional requirement document template:
+
+```
+FR-001: User Login
+Description: The system shall allow users to log in using their email address and password.
+Acceptance Criteria:
+- User can enter their email address and password on the login page.
+- System validates the provided credentials against the user database.
+- Upon successful authentication, the user is granted access to their account.
+- If the credentials are invalid, an error message is displayed, and the user remains on the login page.
+Dependencies:
+- User registration functionality (FR-002)
+- User database (DR-001)
+```
+
+## Validating Functional Requirements
+
+Validating functional requirements ensures that they accurately reflect the needs of the stakeholders and the desired system behavior. Validation techniques include:
+
+- Requirements reviews: Conducting formal reviews with stakeholders to verify the correctness and completeness of the requirements.
+- Prototyping: Using prototypes to demonstrate the functionality and gather feedback from users.
+- Acceptance testing: Performing tests to verify that the implemented system meets the specified functional requirements.
+
+By focusing on functional requirements, software development teams can ensure that the system being built aligns with the expectations of its users and delivers the required functionality.
+
+For more information on non-functional requirements, see the [Non-Functional Requirements](/development-cycles-and-requirements-analysis/requirements-analysis/non-functional-requirements) section.

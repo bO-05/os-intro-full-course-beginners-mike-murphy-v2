@@ -1,0 +1,82 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Malloc and Free
+
+In C, dynamic memory allocation is performed using the `malloc` and `free` functions. These functions allow developers to allocate and deallocate memory at runtime, providing flexibility and efficient memory management.
+
+## Malloc
+
+The `malloc` function is used to allocate a block of memory dynamically. It takes a single argument, which is the size of the memory block in bytes, and returns a pointer to the allocated memory.
+
+```c
+void* malloc(size_t size);
+```
+
+<Callout type="info">
+The `malloc` function returns a `void*` pointer, which can be cast to any other pointer type.
+</Callout>
+
+Here's an example of how to use `malloc` to allocate memory for an integer:
+
+```c
+int* ptr = (int*)malloc(sizeof(int));
+```
+
+In this example, `malloc` allocates a block of memory with a size equal to `sizeof(int)` bytes and returns a pointer to that memory. The pointer is then cast to an `int*` pointer and assigned to the `ptr` variable.
+
+## Free
+
+The `free` function is used to deallocate a block of memory that was previously allocated using `malloc`. It takes a single argument, which is a pointer to the memory block to be deallocated.
+
+```c
+void free(void* ptr);
+```
+
+Here's an example of how to use `free` to deallocate the memory allocated in the previous example:
+
+```c
+free(ptr);
+```
+
+<Callout type="warning">
+It is important to note that calling `free` on a pointer that was not allocated using `malloc` or has already been freed can lead to undefined behavior.
+</Callout>
+
+## Memory Management
+
+When using `malloc` and `free`, it is crucial to manage memory correctly to avoid memory leaks and other issues. Here are some best practices to follow:
+
+<Steps>
+### Always check the return value of `malloc`
+
+`malloc` can fail if there is not enough memory available. Always check the return value of `malloc` to ensure that the allocation was successful before using the allocated memory.
+
+```c
+int* ptr = (int*)malloc(sizeof(int));
+if (ptr == NULL) {
+    // Handle the error
+}
+```
+
+### Free allocated memory when no longer needed
+
+To avoid memory leaks, always free allocated memory when it is no longer needed using the `free` function.
+
+```c
+free(ptr);
+```
+
+### Avoid double freeing
+
+Calling `free` on a pointer that has already been freed can lead to undefined behavior. Make sure to set the pointer to `NULL` after freeing it to avoid double freeing.
+
+```c
+free(ptr);
+ptr = NULL;
+```
+
+</Steps>
+
+By following these best practices and using `malloc` and `free` appropriately, you can effectively manage dynamic memory allocation in your C programs.
+
+For more information on memory management in operating systems, see the [Memory Resources](/memory-resources-and-paging/memory-resources) section.

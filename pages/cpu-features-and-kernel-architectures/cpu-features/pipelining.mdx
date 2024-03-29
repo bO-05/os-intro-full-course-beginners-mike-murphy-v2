@@ -1,0 +1,70 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Pipelining
+
+Pipelining is a technique used in modern CPUs to improve performance by allowing multiple instructions to be executed simultaneously. It divides the execution of an instruction into smaller stages, each of which can be performed independently and in parallel with other stages.
+
+## How Pipelining Works
+
+<Steps>
+
+### Step 1: Instruction Fetch (IF)
+The CPU fetches the next instruction from memory based on the program counter (PC).
+
+### Step 2: Instruction Decode (ID)
+The fetched instruction is decoded to determine the operation to be performed and the operands involved.
+
+### Step 3: Execute (EX)
+The CPU performs the operation specified by the decoded instruction using the ALU (Arithmetic Logic Unit).
+
+### Step 4: Memory Access (MEM)
+If the instruction requires memory access (e.g., load or store), the CPU interacts with the memory subsystem.
+
+### Step 5: Write Back (WB)
+The result of the executed instruction is written back to the register file or memory.
+
+</Steps>
+
+By dividing the execution into these stages, the CPU can work on multiple instructions simultaneously, with each stage handling a different instruction. This parallel execution improves the overall throughput of the CPU.
+
+```mermaid
+graph LR
+A[Instruction Fetch] --> B[Instruction Decode]
+B --> C[Execute]
+C --> D[Memory Access]
+D --> E[Write Back]
+```
+
+## Benefits of Pipelining
+
+1. **Increased Throughput**: Pipelining allows the CPU to execute multiple instructions simultaneously, resulting in higher throughput and improved performance.
+
+2. **Efficient Resource Utilization**: By dividing the execution into stages, pipelining enables better utilization of CPU resources, as different parts of the CPU can work on different instructions concurrently.
+
+3. **Reduced Latency**: Although pipelining does not reduce the time required to execute a single instruction (latency), it reduces the average time between the completion of consecutive instructions, resulting in faster overall execution.
+
+<Callout type="info">
+Pipelining is a key feature of modern CPU architectures, including the x86 and ARM architectures, which are widely used in personal computers, servers, and mobile devices.
+</Callout>
+
+## Challenges in Pipelining
+
+1. **Data Dependencies**: Pipelining can be affected by data dependencies, where an instruction depends on the result of a previous instruction. This can lead to pipeline stalls or bubbles, reducing the effectiveness of pipelining.
+
+2. **Control Dependencies**: Branch instructions and function calls can disrupt the pipeline flow, as the CPU may not know which instruction to fetch next until the branch condition is evaluated.
+
+3. **Resource Conflicts**: If multiple instructions in the pipeline require the same resources (e.g., ALU or memory), it can lead to resource conflicts and stall the pipeline.
+
+To mitigate these challenges, modern CPUs employ techniques such as [out-of-order execution](/cpu-features-and-kernel-architectures/cpu-features/out-of-order-execution), [branch prediction](/cpu-features-and-kernel-architectures/cpu-features/branch-prediction), and [superscalar](/cpu-features-and-kernel-architectures/cpu-features/superscalar) designs.
+
+## Impact on Operating Systems
+
+Pipelining has a significant impact on operating system design and performance:
+
+1. **Context Switching**: When the operating system performs a context switch between processes, it must save and restore the pipeline state, which can introduce overhead.
+
+2. **Interrupt Handling**: Interrupts can disrupt the pipeline flow, requiring the operating system to handle them efficiently to minimize the impact on performance.
+
+3. **Scheduling**: The operating system's scheduler must be aware of the pipeline characteristics to make informed decisions about process scheduling and resource allocation.
+
+Understanding pipelining is crucial for operating system developers to optimize system performance and make efficient use of CPU resources.

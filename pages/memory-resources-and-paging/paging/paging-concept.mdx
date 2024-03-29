@@ -1,0 +1,58 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Paging Concept
+
+Paging is a memory management technique used by operating systems to efficiently manage the allocation of physical memory to processes. It allows the system to divide physical memory into fixed-size blocks called **pages** and the process's virtual memory into corresponding **page frames**.
+
+The main advantages of paging are:
+
+- **Efficient memory utilization**: Paging allows the operating system to allocate memory to processes in smaller, more manageable chunks, reducing fragmentation and improving memory utilization.
+- **Increased multiprogramming**: By dividing memory into pages, the operating system can support more concurrent processes, as each process only needs to load the necessary pages into physical memory.
+- **Simplified memory allocation**: Paging simplifies memory allocation by providing a consistent and uniform method for managing memory across different processes.
+
+<Callout type="info">
+Paging is widely used in modern operating systems, such as Windows, Linux, and macOS, to manage memory resources effectively.
+</Callout>
+
+## How Paging Works
+
+The paging process involves several key components:
+
+<Steps>
+### Step 1: Dividing memory into pages
+
+The operating system divides physical memory into fixed-size blocks called pages. The size of a page is typically 4KB, but it can vary depending on the system architecture.
+
+### Step 2: Mapping virtual memory to physical memory
+
+Each process has its own virtual memory space, which is divided into page-sized units called page frames. The operating system maintains a page table for each process, which maps the virtual page frames to the corresponding physical pages in memory.
+
+### Step 3: Loading pages on demand
+
+When a process requests access to a particular memory location, the operating system checks the page table to determine if the corresponding page is already in physical memory. If the page is not in memory (a page fault occurs), the operating system loads the required page from secondary storage (e.g., hard disk) into an available physical page frame.
+</Steps>
+
+The following diagram illustrates the mapping between a process's virtual memory and physical memory:
+
+```mermaid
+graph LR
+A[Process Virtual Memory] --> B[Page Table]
+B --> C[Physical Memory]
+```
+
+## Page Table
+
+The page table is a critical data structure used in paging to map virtual memory addresses to physical memory addresses. Each entry in the page table contains information about a specific page, such as:
+
+- The virtual page number
+- The corresponding physical page frame number
+- Access control bits (e.g., read, write, execute permissions)
+- A present/absent bit indicating whether the page is currently in physical memory
+
+When a process accesses a memory location, the operating system uses the page table to translate the virtual address ($VirtualAddress$) to the corresponding physical address ($PhysicalAddress$) using the following formula:
+
+$PhysicalAddress = (VirtualPageNumber \times PageSize) + Offset$
+
+For more information on page table management, see the [Page Table Management](/memory-resources-and-paging/paging/page-table-management) section.
+
+By efficiently managing memory through paging, operating systems can optimize memory usage, support multiple concurrent processes, and provide a consistent and reliable memory management mechanism.

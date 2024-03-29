@@ -1,0 +1,74 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Page Table Management
+
+Page table management is a crucial component of the [paging](/memory-resources-and-paging/paging/paging-concept) mechanism in operating systems. It involves the creation, maintenance, and updating of page tables, which are data structures used to store the mapping between virtual addresses and physical addresses.
+
+## Page Table Structure
+
+A page table is typically organized as an array of page table entries (PTEs). Each PTE contains information about a specific virtual page, including:
+
+- The physical page number (PPN) that the virtual page maps to
+- Access rights and permissions (read, write, execute)
+- Valid/invalid bit to indicate whether the mapping is currently valid
+- Dirty bit to track if the page has been modified
+- Reference bit to keep track of page usage for replacement algorithms
+
+<Callout type="info">
+The size of a page table depends on the size of the virtual address space and the page size. For example, with a 32-bit virtual address space and a 4 KB page size, the page table would contain 2^20 (1,048,576) entries.
+</Callout>
+
+## Page Table Lookup
+
+When a process accesses a virtual address, the CPU performs a page table lookup to translate the virtual address to a physical address. The lookup process involves the following steps:
+
+<Steps>
+### Step 1: Extract the virtual page number (VPN)
+The virtual address is divided into two parts: the virtual page number (VPN) and the offset within the page. The VPN is used as an index into the page table.
+
+### Step 2: Access the page table entry (PTE)
+Using the VPN, the corresponding PTE is accessed from the page table. The PTE contains the physical page number (PPN) that the virtual page maps to.
+
+### Step 3: Construct the physical address
+The PPN from the PTE is combined with the offset from the virtual address to form the complete physical address.
+</Steps>
+
+The page table lookup process can be represented using the following diagram:
+
+```mermaid
+graph LR
+A[Virtual Address] --> B[Page Table]
+B --> C[Page Table Entry]
+C --> D[Physical Address]
+```
+
+## Translation Lookaside Buffer (TLB)
+
+To optimize the performance of page table lookups, modern CPUs include a hardware cache called the Translation Lookaside Buffer (TLB). The TLB stores recently used page table entries, allowing faster translation of virtual addresses to physical addresses without accessing the main memory.
+
+When a virtual address needs to be translated, the CPU first checks the TLB for a matching entry. If found (TLB hit), the physical address is obtained directly from the TLB. If not found (TLB miss), the CPU performs a regular page table lookup and updates the TLB with the new entry.
+
+The TLB significantly reduces the overhead of page table lookups, as it exploits the principle of locality: recently accessed pages are likely to be accessed again in the near future.
+
+<Callout type="info">
+The TLB is a small, fast cache that typically contains a few dozen to a few hundred entries. It is fully associative, meaning that any virtual page number can be stored in any TLB entry.
+</Callout>
+
+## Page Table Updates
+
+Page table management also involves updating the page tables whenever changes occur in the virtual-to-physical mappings. Some common scenarios that require page table updates include:
+
+- **Page faults**: When a process accesses a virtual page that is not currently mapped to a physical page (e.g., the page is swapped out to disk), a page fault occurs. The operating system handles the page fault by bringing the requested page into memory, updating the page table entry, and resuming the process.
+
+- **Memory allocation**: When a process requests memory allocation (e.g., using `malloc` in C), the operating system assigns new physical pages to the process and updates the page table entries accordingly.
+
+- **Memory deallocation**: When a process releases memory (e.g., using `free` in C), the operating system marks the corresponding physical pages as free and invalidates the associated page table entries.
+
+- **Process creation**: When a new process is created, the operating system sets up a new page table for the process and initializes the page table entries based on the memory layout of the process.
+
+Efficient page table management is essential for the overall performance of the operating system and the processes running on it. Modern CPUs and operating systems employ various optimizations, such as multi-level page tables and hardware-assisted page table walking, to minimize the overhead of page table lookups and updates.
+
+For more information on related topics, see:
+- [Paging Concept](/memory-resources-and-paging/paging/paging-concept)
+- [Memory Protection](/memory-protection-and-page-tables/memory-protection)
+- [Virtual Memory](/virtual-memory-and-object-oriented-design/virtual-memory)

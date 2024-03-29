@@ -1,0 +1,38 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Paging
+
+Paging is a memory management technique used by operating systems to provide a virtual address space to processes. It allows each process to have its own virtual memory, which is divided into fixed-size blocks called pages. The physical memory is also divided into fixed-size blocks called frames. The operating system maintains a mapping between the virtual pages and the physical frames, allowing processes to access memory using virtual addresses.
+
+Paging offers several benefits:
+
+- **Efficient memory utilization**: Paging allows the operating system to allocate memory to processes on-demand, reducing memory waste.
+- **Increased multiprogramming**: By providing each process with its own virtual address space, paging enables multiple processes to run concurrently without interfering with each other's memory.
+- **Simplified memory allocation**: With paging, the operating system can allocate memory to processes in fixed-size blocks, simplifying memory management.
+
+<Callout type="info">
+Paging is widely used in modern operating systems, including Windows, Linux, and macOS, to provide virtual memory and enhance system performance.
+</Callout>
+
+The paging process involves several key components:
+
+- **Page table**: A data structure that maintains the mapping between virtual pages and physical frames.
+- **Translation Lookaside Buffer (TLB)**: A hardware cache that stores recently used page table entries to speed up address translation.
+- **Page fault**: An exception that occurs when a process tries to access a virtual page that is not currently mapped to a physical frame in memory.
+
+Here's a simple diagram illustrating the paging process:
+
+```mermaid
+graph LR
+A[Virtual Address] --> B[Page Table]
+B --> C[Physical Address]
+```
+
+The operating system uses the page table to translate virtual addresses to physical addresses. When a process accesses memory, the virtual address is divided into two parts: the page number and the offset within the page. The page number is used as an index into the page table to retrieve the corresponding physical frame number. The offset is then added to the physical frame number to obtain the actual physical address.
+
+To learn more about the paging concept and how page tables are managed, check out the following subsections:
+
+- [Paging Concept](/memory-resources-and-paging/paging/paging-concept)
+- [Page Table Management](/memory-resources-and-paging/paging/page-table-management)
+
+By understanding paging and its implementation, you'll gain insights into how operating systems efficiently manage memory and provide virtual address spaces to processes.

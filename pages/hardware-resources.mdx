@@ -1,0 +1,51 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Hardware Resources
+
+Operating systems are responsible for managing the hardware resources of a computer system. These resources include the Central Processing Unit (CPU), memory, and disk input/output (I/O) devices. Let's take a closer look at each of these components and how the operating system interacts with them.
+
+## [CPU](/hardware-resources/cpu)
+
+The CPU is the brain of the computer, executing instructions and performing calculations. The operating system is responsible for scheduling processes and threads to run on the CPU, ensuring that each process gets a fair share of CPU time and that the system remains responsive.
+
+<Callout type="info">
+The operating system uses various scheduling algorithms, such as round-robin and priority-based scheduling, to determine the order in which processes are executed on the CPU.
+</Callout>
+
+## [Memory](/hardware-resources/memory)
+
+Memory, or RAM (Random Access Memory), is a crucial resource that the operating system must manage efficiently. The operating system is responsible for allocating memory to processes and ensuring that each process has enough memory to function properly.
+
+Some of the key memory management tasks performed by the operating system include:
+
+- **Memory allocation**: When a process is created, the operating system allocates a portion of memory to it. This memory is used to store the process's code, data, and stack.
+- **Memory protection**: The operating system must ensure that each process can only access its own memory space and cannot interfere with the memory of other processes.
+- **Virtual memory**: To support running more processes than the available physical memory, the operating system uses virtual memory techniques, such as paging and swapping, to create the illusion of a larger memory space.
+
+## [Disk Input & Output](/hardware-resources/disk-input-output)
+
+Disk I/O refers to the reading from and writing to storage devices, such as hard disk drives (HDDs) and solid-state drives (SSDs). The operating system manages disk I/O operations, ensuring that data is efficiently read from and written to the storage devices.
+
+<Steps>
+### Step 1
+
+The operating system receives a request from a process to read or write data to a storage device.
+
+### Step 2
+
+The operating system translates the logical address provided by the process into a physical address on the storage device.
+
+### Step 3
+
+The operating system issues the appropriate commands to the storage device controller to perform the requested operation.
+
+### Step 4
+
+The storage device controller executes the command and transfers the data between the storage device and main memory.
+
+### Step 5
+
+The operating system notifies the process that the I/O operation is complete, and the process can continue its execution.
+</Steps>
+
+By efficiently managing these hardware resources, the operating system ensures that processes can execute smoothly and that the overall system performance remains optimal. The coordination between the operating system and the hardware resources is essential for the stable and efficient operation of a computer system.

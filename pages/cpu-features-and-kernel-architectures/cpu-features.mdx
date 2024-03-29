@@ -1,0 +1,39 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# CPU Features
+
+The Central Processing Unit (CPU) is the heart of any computer system, responsible for executing instructions and performing calculations. Modern CPUs incorporate a range of features designed to enhance performance and efficiency. In this section, we'll explore some of the key CPU features that have a significant impact on operating system performance.
+
+## Pipelining
+
+Pipelining is a technique used to improve CPU performance by allowing multiple instructions to be executed simultaneously. By breaking down the execution of an instruction into smaller stages, such as fetch, decode, execute, and write-back, pipelining enables the CPU to work on different parts of multiple instructions at the same time. This parallel processing approach can significantly boost the overall throughput of the CPU.
+
+<Callout type="info">
+Pipelining is analogous to an assembly line in a factory, where different stages of production are performed concurrently on different products, increasing efficiency and output.
+</Callout>
+
+To learn more about pipelining and its role in CPU performance, check out the [Pipelining](/cpu-features-and-kernel-architectures/cpu-features/pipelining) subsection.
+
+## Branch Prediction
+
+Branch prediction is another important CPU feature that aims to minimize the performance impact of conditional branching instructions. When a program encounters a conditional branch, such as an if-else statement, the CPU must decide which path to take based on the outcome of the condition. Branch prediction algorithms attempt to predict the likely outcome of a branch before the condition is actually evaluated, allowing the CPU to speculatively execute instructions along the predicted path.
+
+<Steps>
+### Step 1
+
+The CPU employs branch prediction algorithms to guess the likely outcome of a conditional branch based on historical data and heuristics.
+
+### Step 2
+
+If the prediction is correct, the CPU continues executing instructions along the predicted path, avoiding pipeline stalls and improving performance.
+
+### Step 3
+
+If the prediction is incorrect, the CPU must discard the speculatively executed instructions and redirect the pipeline to the correct path, incurring a performance penalty.
+</Steps>
+
+To dive deeper into branch prediction and its impact on CPU performance, refer to the [Branch Prediction](/cpu-features-and-kernel-architectures/cpu-features/branch-prediction) subsection.
+
+These CPU features, along with others like [caching](/hardware-resources/memory/memory-management#caching), [virtualization](/hardware-resources/memory/virtual-memory), and [multi-threading](/process-management/processes/process-concept#multi-threading), play a crucial role in optimizing CPU performance and enabling efficient execution of operating system tasks. By understanding and leveraging these features, operating system designers can make informed decisions to maximize system performance and responsiveness.
+
+In the next section, we'll explore [Kernel Architectures](/cpu-features-and-kernel-architectures/kernel-architectures) and how they interact with CPU features to shape the overall design and behavior of operating systems.

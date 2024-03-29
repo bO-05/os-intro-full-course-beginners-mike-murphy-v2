@@ -1,0 +1,41 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Page Replacement
+
+In operating systems, **page replacement** is the process of selecting a page in memory to be replaced when a new page needs to be loaded into memory. This is a crucial component of **virtual memory management**, as it allows the system to effectively utilize the limited physical memory while providing the illusion of a larger memory space to processes.
+
+When a process requests a page that is not currently in physical memory, a **page fault** occurs. The operating system must then choose a page to remove from memory to make room for the requested page. The goal of page replacement is to minimize the number of page faults and optimize the overall system performance.
+
+## Key Concepts
+
+- **Page Fault**: Occurs when a process requests a page that is not currently in physical memory.
+- **Victim Page**: The page selected by the page replacement algorithm to be removed from memory.
+- **Dirty Page**: A page that has been modified since it was loaded into memory. Dirty pages must be written back to disk before being replaced.
+- **Page Replacement Algorithm**: The algorithm used to determine which page should be replaced when a page fault occurs.
+
+<Callout type="info">
+Page replacement is a critical aspect of virtual memory management, as it directly impacts the performance and efficiency of the system. Choosing the right page replacement algorithm can significantly reduce the number of page faults and improve overall system responsiveness.
+</Callout>
+
+## Page Replacement Algorithms
+
+Various page replacement algorithms have been developed to optimize the selection of pages for replacement. Some of the most common algorithms include:
+
+- [First-In-First-Out (FIFO)](/object-oriented-implementations-and-page-replacement/page-replacement/algorithms#fifo)
+- [Least Recently Used (LRU)](/object-oriented-implementations-and-page-replacement/page-replacement/algorithms#lru)
+- [Optimal Page Replacement](/object-oriented-implementations-and-page-replacement/page-replacement/algorithms#optimal)
+- [Second Chance](/object-oriented-implementations-and-page-replacement/page-replacement/algorithms#second-chance)
+
+Each algorithm has its own strengths and weaknesses, and the choice of algorithm depends on factors such as workload characteristics, available resources, and performance requirements.
+
+## Performance Analysis
+
+Evaluating the performance of page replacement algorithms is essential for understanding their effectiveness and making informed decisions about which algorithm to use in a given scenario. Some key metrics for analyzing page replacement algorithms include:
+
+- [Hit Ratio](/object-oriented-implementations-and-page-replacement/page-replacement/performance-analysis#hit-ratio)
+- [Miss Ratio](/object-oriented-implementations-and-page-replacement/page-replacement/performance-analysis#miss-ratio)
+- [Average Memory Access Time (AMAT)](/object-oriented-implementations-and-page-replacement/page-replacement/performance-analysis#amat)
+
+By studying these metrics and comparing the performance of different algorithms, system designers can choose the most appropriate page replacement strategy for their specific use case.
+
+Page replacement is a fundamental concept in operating systems and plays a vital role in the efficient management of virtual memory. By understanding the various page replacement algorithms and their performance characteristics, you can make informed decisions when designing and optimizing memory management subsystems.

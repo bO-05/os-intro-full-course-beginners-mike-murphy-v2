@@ -1,0 +1,54 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Virtual Memory
+
+Virtual memory is a memory management technique used by operating systems to provide an illusion of a large, contiguous address space to processes, even when the physical memory is limited and fragmented. It allows each process to have its own private address space, which can be larger than the actual physical memory available on the system.
+
+## How Virtual Memory Works
+
+The main idea behind virtual memory is to separate the logical memory used by processes from the physical memory available on the system. This separation is achieved through a combination of hardware and software components.
+
+<Steps>
+### Step 1: Address Translation
+
+When a process accesses memory using a virtual address, the CPU translates the virtual address into a corresponding physical address using a hardware component called the Memory Management Unit (MMU). The MMU maintains a mapping between virtual and physical addresses using a data structure called the page table.
+
+### Step 2: Paging
+
+Virtual memory divides the logical address space of a process into fixed-size blocks called pages, and the physical memory is divided into frames of the same size. The operating system maintains a page table for each process, which maps the virtual pages to physical frames.
+
+### Step 3: Demand Paging
+
+To optimize memory usage, virtual memory uses a technique called demand paging. With demand paging, only the pages that are currently needed by a process are loaded into physical memory. When a process accesses a page that is not present in physical memory, a page fault occurs, and the operating system loads the required page from secondary storage (e.g., hard disk) into physical memory.
+
+</Steps>
+
+<Callout type="info">
+Virtual memory allows the total size of all processes' virtual address spaces to exceed the amount of physical memory available on the system. This is possible because not all pages of a process need to be in physical memory at the same time.
+</Callout>
+
+## Benefits of Virtual Memory
+
+1. **Increased Multiprogramming**: Virtual memory enables multiple processes to run concurrently on a system, even if their combined memory requirements exceed the physical memory capacity. This increases the degree of multiprogramming and resource utilization.
+
+2. **Memory Protection**: Each process has its own private virtual address space, which is isolated from other processes. This prevents processes from accessing or modifying each other's memory, ensuring better security and stability.
+
+3. **Simplified Programming**: Virtual memory provides a large, contiguous address space to processes, which simplifies programming by eliminating the need for manual memory management and overlays.
+
+## Page Replacement Algorithms
+
+When the physical memory is full and a page fault occurs, the operating system must choose a page to evict from memory to make room for the newly requested page. This decision is made by the page replacement algorithm. Some common page replacement algorithms include:
+
+- **First-In-First-Out (FIFO)**: Replaces the page that has been in memory for the longest time.
+- **Least Recently Used (LRU)**: Replaces the page that has not been used for the longest time.
+- **Optimal**: Replaces the page that will not be used for the longest time in the future. This algorithm is theoretical and not implementable in practice.
+
+<Callout type="warning">
+The choice of page replacement algorithm can significantly impact the performance of a system. A good page replacement algorithm should minimize the number of page faults and ensure efficient memory utilization.
+</Callout>
+
+For more information on memory management and related topics, see:
+
+- [Memory Resources](/hardware-resources/memory)
+- [Paging](/memory-resources-and-paging/paging)
+- [Page Tables](/memory-protection-and-page-tables/page-tables)

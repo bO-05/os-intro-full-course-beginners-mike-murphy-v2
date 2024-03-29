@@ -1,0 +1,87 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Synchronization
+
+In a multi-process environment, synchronization plays a crucial role in coordinating access to shared resources. Without proper synchronization, concurrent processes can lead to race conditions, data inconsistencies, and other undesirable outcomes. In this section, we'll explore the concept of synchronization and discuss various techniques used to achieve it in operating systems.
+
+## The Need for Synchronization
+
+Consider a scenario where multiple processes are accessing a shared resource, such as a file or a memory location. If these processes are allowed to access the resource simultaneously without any coordination, it can result in conflicts and data corruption. For example:
+
+<Callout type="warning" emoji="⚠️">
+Let's say two processes, P1 and P2, are trying to increment a shared variable `count` simultaneously. If both processes read the initial value of `count` (say, 0) at the same time, increment it, and then write the new value back, the final value of `count` will be 1 instead of the expected 2. This is known as a race condition.
+</Callout>
+
+To avoid such issues, we need synchronization mechanisms that ensure exclusive access to shared resources and maintain data integrity.
+
+## Critical Sections
+
+A critical section is a portion of code where a process accesses shared resources and must not be interrupted or executed concurrently by other processes. The key requirements for synchronizing critical sections are:
+
+1. **Mutual Exclusion**: At most one process can be executing in its critical section at any given time.
+2. **Progress**: If no process is currently executing in its critical section, and some processes wish to enter their critical sections, then the selection of the process that will enter its critical section next cannot be postponed indefinitely.
+3. **Bounded Waiting**: There must be a limit on the number of times that other processes are allowed to enter their critical sections after a process has made a request to enter its critical section and before that request is granted.
+
+## Synchronization Primitives
+
+Operating systems provide various synchronization primitives to help coordinate access to shared resources. Two commonly used primitives are locks and semaphores.
+
+### Locks
+
+A lock is a synchronization mechanism that provides mutual exclusion. When a process acquires a lock, it gains exclusive access to the associated shared resource. Other processes attempting to acquire the same lock will be blocked until the lock is released. Locks can be implemented using hardware instructions like test-and-set or compare-and-swap.
+
+<Steps>
+### Step 1: Acquiring a Lock
+
+```python
+acquire_lock():
+    while (lock == 1); // wait until lock is free
+    lock = 1; // acquire the lock
+```
+
+### Step 2: Releasing a Lock
+
+```python
+release_lock():
+    lock = 0; // release the lock
+```
+</Steps>
+
+### Semaphores
+
+Semaphores are integer variables that are used for signaling and synchronization. They can be used to solve various synchronization problems, such as producer-consumer and readers-writers. A semaphore has two main operations: `wait` (also known as `P`) and `signal` (also known as `V`).
+
+```mermaid
+graph LR
+    A[Process] -- wait --> B((Semaphore))
+    B -- signal --> A
+```
+
+<Steps>
+### Step 1: Wait Operation
+
+```python
+wait(semaphore):
+    while (semaphore == 0); // wait until semaphore is positive
+    semaphore = semaphore - 1; // decrement the semaphore
+```
+
+### Step 2: Signal Operation
+
+```python
+signal(semaphore):
+    semaphore = semaphore + 1; // increment the semaphore
+```
+</Steps>
+
+Semaphores can be binary (0 or 1) or counting (non-negative integers). Binary semaphores are used for mutual exclusion, similar to locks, while counting semaphores are used for resource counting and signaling.
+
+## Synchronization Problems
+
+Several classic synchronization problems exist, such as the [Dining Philosophers](/process-management/process-management-techniques/synchronization/dining-philosophers), [Producer-Consumer](/process-management/process-management-techniques/synchronization/producer-consumer), and [Readers-Writers](/process-management/process-management-techniques/synchronization/readers-writers) problems. These problems highlight different scenarios where synchronization is necessary to ensure proper coordination and avoid issues like deadlocks and starvation.
+
+<Callout type="info" emoji="ℹ️">
+In the Dining Philosophers problem, we have $N$ philosophers seated around a circular table, with a fork between each pair of philosophers. Each philosopher needs two forks to eat. The challenge is to design a solution that allows the philosophers to eat without encountering deadlocks or starvation.
+</Callout>
+
+By understanding and applying synchronization techniques, operating systems can effectively manage shared resources and ensure the correct and efficient execution of concurrent processes.

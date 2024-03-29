@@ -1,0 +1,71 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Encapsulation
+
+Encapsulation is a fundamental concept in object-oriented programming (OOP) that involves bundling data and methods that operate on that data within a single unit, known as a class. It is a mechanism for hiding the internal details of an object and providing a public interface for interacting with the object.
+
+## Why Encapsulation Matters
+
+Encapsulation is crucial in OOP for several reasons:
+
+1. **Data protection**: Encapsulation allows you to control access to the internal state of an object, preventing unauthorized modification and ensuring data integrity.
+
+2. **Modularity**: By encapsulating related data and methods within a class, you create self-contained and reusable modules, making your code more organized and maintainable.
+
+3. **Abstraction**: Encapsulation enables you to hide the complexity of an object's implementation and provide a simplified interface for interacting with the object, promoting a higher level of abstraction.
+
+## Achieving Encapsulation
+
+To achieve encapsulation in OOP, you can follow these steps:
+
+<Steps>
+
+### Step 1: Declare class variables as private
+
+By declaring the internal state (variables) of a class as private, you restrict direct access to these variables from outside the class. This prevents unauthorized modification and ensures that the state can only be accessed through controlled methods.
+
+### Step 2: Provide public methods for accessing and modifying the state
+
+To allow controlled access to the internal state of an object, you define public methods, often referred to as getters and setters. These methods provide a way to retrieve and modify the values of the private variables while enforcing any necessary validation or constraints.
+
+</Steps>
+
+Here's an example of encapsulation in Java:
+
+```java
+public class BankAccount {
+    private double balance;
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+        }
+    }
+}
+```
+
+In this example, the `BankAccount` class encapsulates the `balance` variable as private and provides public methods `getBalance()`, `deposit()`, and `withdraw()` to access and modify the balance in a controlled manner.
+
+<Callout type="info">
+Encapsulation is not limited to hiding data; it also involves encapsulating behavior within a class. By bundling related methods with the data they operate on, you create cohesive and self-contained objects.
+</Callout>
+
+## Encapsulation and Inheritance
+
+Encapsulation works hand in hand with [inheritance](/virtual-memory-and-object-oriented-design/object-oriented-design/inheritance), another key concept in OOP. When a subclass inherits from a superclass, it inherits the encapsulated members (variables and methods) of the superclass. However, the subclass can override or extend the inherited behavior while still maintaining the encapsulation provided by the superclass.
+
+By combining encapsulation and inheritance, you can create hierarchical relationships between classes, promoting code reuse and facilitating the creation of specialized classes based on more general ones.
+
+## Conclusion
+
+Encapsulation is a vital principle in object-oriented programming that enables data protection, modularity, and abstraction. By bundling data and methods within classes and controlling access through public interfaces, you can create robust and maintainable software systems. Encapsulation, along with other OOP concepts like [inheritance](/virtual-memory-and-object-oriented-design/object-oriented-design/inheritance) and [polymorphism](/object-oriented-implementations-and-page-replacement/object-oriented-implementations/polymorphism), forms the foundation of effective object-oriented design and implementation.

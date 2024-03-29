@@ -1,0 +1,68 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Class Notation
+
+In UML class diagrams, classes are represented using a rectangular box divided into three compartments: the class name, attributes, and operations. Let's explore each of these compartments in detail.
+
+## Class Name
+
+The top compartment contains the name of the class, which should be a singular noun or noun phrase that clearly represents the concept being modeled. Class names are typically written in Pascal case (also known as upper camel case), where each word in the name is capitalized.
+
+<Callout type="info">
+For example, a class representing a user in a system could be named "User" or "SystemUser".
+</Callout>
+
+## Attributes
+
+The middle compartment lists the attributes (also called properties or fields) of the class. Attributes represent the data that an instance of the class will contain. Each attribute is listed on a separate line and includes the attribute name, followed by a colon and its type.
+
+The general syntax for attributes is:
+
+```
+[visibility] attributeName: attributeType [multiplicity] [= defaultValue]
+```
+
+- **Visibility**: Indicates the accessibility of the attribute. Common visibility symbols include:
+  - `+` for public
+  - `-` for private
+  - `#` for protected
+  - `~` for package-private
+- **Attribute Name**: The name of the attribute, typically written in camel case.
+- **Attribute Type**: The data type of the attribute (e.g., String, int, boolean).
+- **Multiplicity** (optional): Specifies the number of values the attribute can hold. It is denoted by a range (e.g., `0..1`, `1..*`, `2..5`).
+- **Default Value** (optional): Specifies the default value of the attribute.
+
+<Callout type="info">
+For example, an attribute representing a user's email could be written as:
+
+```
+- email: String
+```
+</Callout>
+
+## Operations
+
+The bottom compartment lists the operations (also called methods or member functions) that instances of the class can perform. Operations represent the behavior of the class. Each operation is listed on a separate line and includes the operation name, parameters (if any), and return type.
+
+The general syntax for operations is:
+
+```
+[visibility] operationName(parameterList): returnType
+```
+
+- **Visibility**: Indicates the accessibility of the operation, using the same symbols as attributes.
+- **Operation Name**: The name of the operation, typically written in camel case.
+- **Parameter List**: A comma-separated list of parameters, specifying their names and types.
+- **Return Type**: The data type of the value returned by the operation, if any.
+
+<Callout type="info">
+For example, an operation to retrieve a user's full name could be written as:
+
+```
++ getFullName(): String
+```
+</Callout>
+
+By following this notation, you can effectively represent classes, their attributes, and operations in UML class diagrams. This standardized notation enhances communication and understanding among team members and stakeholders.
+
+For more information on class relationships and how to connect classes in UML diagrams, see the [Class Relationships](/user-driven-design-and-uml-class-diagrams/uml-class-diagrams/class-relationships) section.

@@ -1,0 +1,99 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Physical Memory
+
+Physical memory, also known as RAM (Random Access Memory), is the hardware component in a computer system that stores data and instructions currently being used by the CPU. It is a crucial resource managed by the operating system to ensure efficient execution of processes.
+
+## Characteristics of Physical Memory
+
+Physical memory has the following characteristics:
+
+- **Volatility**: RAM is volatile, meaning that it loses its contents when the power is turned off or the system is restarted.
+- **Speed**: RAM is significantly faster than secondary storage devices like hard drives or SSDs, allowing for quick access to data and instructions.
+- **Limited capacity**: The amount of physical memory installed in a system is limited and typically smaller than the secondary storage capacity.
+
+## Memory Hierarchy
+
+Physical memory is part of the memory hierarchy in a computer system. The memory hierarchy consists of different levels of memory with varying speeds and capacities:
+
+1. CPU registers
+2. Cache memory (L1, L2, L3)
+3. Main memory (RAM)
+4. Secondary storage (hard drives, SSDs)
+
+<Callout>
+  The memory hierarchy is designed to balance the trade-off between speed and
+  capacity. Faster memory levels (like CPU registers and cache) have smaller
+  capacities, while slower levels (like RAM and secondary storage) have larger
+  capacities.
+</Callout>
+
+## Memory Allocation
+
+The operating system is responsible for allocating physical memory to processes. When a process is created, the OS assigns it a portion of the available RAM. The allocated memory is used to store the process's instructions, data, and runtime stack.
+
+The OS employs various memory allocation techniques, such as:
+
+- **Contiguous allocation**: Memory is allocated to processes in contiguous blocks.
+- **Paging**: Memory is divided into fixed-size pages, and processes are allocated memory in terms of pages.
+- **Segmentation**: Memory is divided into variable-size segments, and each process is allocated memory based on its logical segments.
+
+## Memory Management Unit (MMU)
+
+The Memory Management Unit (MMU) is a hardware component that assists the operating system in managing physical memory. It performs the following tasks:
+
+- Address translation: Converts logical addresses used by processes into physical addresses in RAM.
+- Memory protection: Ensures that processes can only access memory allocated to them, preventing unauthorized access to other processes' memory.
+
+The MMU uses page tables or segment tables to map logical addresses to physical addresses. These tables are maintained by the operating system and consulted by the MMU during address translation.
+
+Here's an example of how the MMU translates a logical address to a physical address using paging:
+
+```mermaid
+graph LR
+A[Logical Address] --> B[MMU]
+B --> C[Page Table]
+C --> D[Physical Address]
+```
+
+In this example, the logical address is passed to the MMU, which consults the page table to find the corresponding physical address in RAM.
+
+## Memory Fragmentation
+
+Memory fragmentation occurs when the available memory becomes divided into small, non-contiguous blocks, making it difficult to allocate memory to processes that require larger contiguous blocks. There are two types of memory fragmentation:
+
+- **External fragmentation**: Occurs when there is enough total memory available, but it is not contiguous, leaving small gaps between allocated memory blocks.
+- **Internal fragmentation**: Occurs when a process is allocated more memory than it actually needs, leading to wasted space within the allocated memory block.
+
+To mitigate memory fragmentation, the operating system employs techniques like:
+
+- **Compaction**: Relocating allocated memory blocks to create larger contiguous free blocks.
+- **Paging**: Using fixed-size pages to allocate memory, which reduces external fragmentation.
+- **Buddy system**: Allocating memory in powers of 2 to minimize fragmentation and simplify memory management.
+
+## Physical Memory Management Algorithms
+
+The operating system uses various algorithms to manage physical memory efficiently. Some common algorithms include:
+
+- **First-fit**: Allocates the first sufficiently large contiguous block of memory to a process.
+- **Best-fit**: Allocates the smallest contiguous block of memory that is large enough to accommodate the process.
+- **Worst-fit**: Allocates the largest contiguous block of memory to a process, with the idea that it will leave larger holes for future allocations.
+
+<Callout>
+  Each algorithm has its own advantages and disadvantages in terms of
+  allocation speed, fragmentation, and memory utilization. The choice of
+  algorithm depends on the specific requirements and constraints of the
+  operating system.
+</Callout>
+
+## Conclusion
+
+Physical memory is a critical resource in a computer system, and its efficient management is essential for optimal system performance. The operating system, in conjunction with the Memory Management Unit (MMU), is responsible for allocating and managing physical memory, employing various techniques and algorithms to ensure fair and effective utilization of this limited resource.
+
+By understanding the characteristics of physical memory, the memory hierarchy, and the challenges involved in memory management, developers can write more efficient and memory-conscious programs that make the best use of the available physical memory resources.
+
+For more information on related topics, you can explore:
+
+- [Virtual Memory](/memory-resources-and-paging/memory-resources/virtual-memory)
+- [Paging](/memory-resources-and-paging/paging)
+- [Memory Protection](/memory-protection-and-page-tables/memory-protection)

@@ -1,0 +1,45 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# I/O Hardware
+
+Input/Output (I/O) hardware is a crucial component of modern computing systems, enabling communication between the computer and external devices. These devices include storage devices, network interfaces, and peripherals such as keyboards, mice, and displays. The role of I/O hardware is to facilitate the transfer of data between the computer and these external devices.
+
+## Types of I/O Devices
+
+I/O devices can be broadly categorized into two types:
+
+1. **Block devices**: These devices provide access to data in fixed-size blocks. Examples include hard disk drives (HDDs), solid-state drives (SSDs), and USB flash drives. Block devices are typically used for persistent storage and are accessed using a block-based protocol.
+
+2. **Character devices**: These devices provide access to data as a stream of characters or bytes. Examples include keyboards, mice, and serial ports. Character devices are typically used for interactive input and output and are accessed using a character-based protocol.
+
+## I/O Interfaces
+
+I/O devices communicate with the computer through various interfaces, which define the physical and logical connection between the device and the computer. Some common I/O interfaces include:
+
+- **PCI (Peripheral Component Interconnect)**: A high-speed bus standard for connecting hardware devices to a computer's motherboard.
+- **USB (Universal Serial Bus)**: A widely used interface for connecting peripherals such as keyboards, mice, and storage devices.
+- **SATA (Serial ATA)**: An interface for connecting storage devices such as HDDs and SSDs to a computer's motherboard.
+- **NVMe (Non-Volatile Memory Express)**: A high-performance interface designed specifically for SSDs, providing lower latency and higher throughput compared to SATA.
+
+<Callout type="info">
+NVMe drives can deliver up to 7 times the throughput of SATA SSDs, making them ideal for applications that require high-speed storage access.
+</Callout>
+
+## I/O Data Transfer Methods
+
+There are three primary methods for transferring data between I/O devices and the computer's memory:
+
+<Steps>
+
+### Programmed I/O (PIO)
+In this method, the CPU is responsible for managing the entire data transfer process. The CPU reads data from the device and writes it to memory, or reads data from memory and writes it to the device. This method is simple but can be inefficient, as the CPU is tied up during the entire transfer process.
+
+### Interrupt-Driven I/O
+With interrupt-driven I/O, the CPU initiates the data transfer and then continues executing other tasks. When the I/O device has completed the transfer, it sends an interrupt signal to the CPU, which then handles the interrupt and processes the transferred data. This method allows for better CPU utilization but can still incur overhead due to interrupt handling.
+
+### Direct Memory Access (DMA)
+DMA allows I/O devices to transfer data directly to and from the computer's memory without the intervention of the CPU. The CPU sets up the DMA transfer by providing the device with the necessary memory addresses and transfer parameters. Once the transfer is initiated, the DMA controller manages the entire process, freeing up the CPU to perform other tasks. DMA is the most efficient method for handling large data transfers.
+
+</Steps>
+
+By understanding the various types of I/O devices, interfaces, and data transfer methods, operating system designers can optimize the performance and efficiency of I/O operations. For more information on how I/O software interacts with I/O hardware, see the [I/O Software](/hardware-resources/disk-input-output/io-software) section.

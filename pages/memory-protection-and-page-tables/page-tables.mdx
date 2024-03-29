@@ -1,0 +1,52 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Page Tables
+
+Page tables play a crucial role in memory management by providing a mapping between virtual addresses used by processes and physical addresses in the system's RAM. They enable the operating system to efficiently manage memory, allowing multiple processes to share the same physical memory space while maintaining isolation and protection.
+
+## How Page Tables Work
+
+When a process accesses memory using a virtual address, the operating system uses the page table to translate the virtual address into a corresponding physical address. The page table contains entries that map virtual page numbers to physical frame numbers in memory.
+
+<Steps>
+### Step 1: Virtual Address Translation
+
+When a process generates a virtual address, the operating system divides the address into two parts:
+- The virtual page number (VPN)
+- The offset within the page
+
+### Step 2: Page Table Lookup
+
+The operating system uses the VPN as an index into the page table to find the corresponding page table entry (PTE). The PTE contains the physical frame number (PFN) that maps to the virtual page.
+
+### Step 3: Physical Address Generation
+
+The operating system combines the PFN from the page table entry with the offset from the virtual address to generate the complete physical address. This physical address is then used to access the desired memory location.
+</Steps>
+
+<Callout type="info">
+The page table itself is stored in memory and managed by the operating system. The hardware, specifically the Memory Management Unit (MMU), assists in the address translation process by caching frequently used page table entries in the Translation Lookaside Buffer (TLB) for faster access.
+</Callout>
+
+## Page Table Structure
+
+The structure of a page table varies depending on the architecture and the operating system. However, the basic components of a page table entry typically include:
+- The physical frame number (PFN)
+- Access control bits (e.g., read, write, execute permissions)
+- Valid/invalid bit to indicate if the entry is currently in use
+- Dirty bit to track if the page has been modified
+- Reference bit to track if the page has been recently accessed
+
+<Callout type="info">
+For more details on the specific structure of page tables, refer to the [Page Table Structure](/memory-protection-and-page-tables/page-tables/page-table-structure) subsection.
+</Callout>
+
+## Translation Lookaside Buffer (TLB)
+
+To optimize the performance of address translation, modern processors include a hardware cache called the Translation Lookaside Buffer (TLB). The TLB stores recently used page table entries, allowing the processor to quickly translate virtual addresses to physical addresses without having to access the page table in memory for every translation.
+
+<Callout type="info">
+For more information on the TLB and its role in address translation, refer to the [Translation Lookaside Buffer (TLB)](/memory-protection-and-page-tables/page-tables/translation-lookaside-buffer) subsection.
+</Callout>
+
+By using page tables, the operating system can efficiently manage memory, provide process isolation, and enable features like virtual memory, which allows processes to access more memory than is physically available in the system.

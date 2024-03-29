@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "@types/node": "^20.11.30",
+    "next": "^14.1.4",
+    "nextra": "^2.13.4",
+    "nextra-theme-docs": "^2.13.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.4.3"
+  },
+  "name": "Introduction-with-lumentis",
+  "description": "The PrimarySource appears to be a transcript of a series of video lectures about operating systems. The lectures cover a wide range of topics related to operating system concepts, including hardware resources, disk input/output, memory management, processes, and more. The target audience for these lectures is likely students or professionals in computer science or a related field who want to learn about operating system fundamentals and implementation details.",
+  "version": "0.0.1",
+  "scripts": {
+    "devstart": "next dev -p 5656 & node start.js",
+    "dev": "next dev -p 5656",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [
+    "Operating Systems",
+    "Memory Management",
+    "Process Management",
+    "CPU Scheduling",
+    "Kernel Architectures",
+    "Disk Input/Output",
+    "Unified Modeling Language (UML)",
+    "Software Development Models",
+    "Object-Oriented Design",
+    "Virtual Memory"
+  ]
+}

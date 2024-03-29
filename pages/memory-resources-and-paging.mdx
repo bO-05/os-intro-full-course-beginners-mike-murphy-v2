@@ -1,0 +1,36 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Memory Resources and Paging
+
+Memory management is a critical component of modern operating systems. It involves efficiently allocating and deallocating memory resources to processes, ensuring that each process has access to the memory it needs while preventing conflicts and optimizing overall system performance.
+
+In this section, we will explore two key aspects of memory management in operating systems: **memory resources** and **paging**. We will delve into the concepts of physical memory, virtual memory, and how paging enables efficient utilization of memory resources.
+
+<Callout type="info">
+Memory management is essential for the smooth operation of an operating system. It ensures that processes have access to the memory they need while maintaining system stability and performance.
+</Callout>
+
+## Understanding Memory Resources
+
+Memory resources refer to the physical memory (RAM) available in a computer system. The operating system is responsible for managing these resources and allocating them to processes as needed. However, the amount of physical memory is limited, and processes often require more memory than is physically available.
+
+To overcome this limitation, operating systems employ various techniques, such as virtual memory and paging, to create the illusion of a larger memory space for processes. By abstracting the physical memory and providing each process with its own virtual address space, the operating system can effectively manage memory resources and enable multiple processes to run concurrently.
+
+## The Role of Paging
+
+Paging is a memory management technique that allows the operating system to divide physical memory into fixed-size blocks called pages. Similarly, the virtual address space of a process is divided into blocks of the same size, known as pages.
+
+The operating system maintains a page table for each process, which maps the virtual pages to physical memory frames. When a process requests access to a specific memory address, the operating system translates the virtual address to the corresponding physical address using the page table.
+
+Paging offers several advantages:
+
+- It enables efficient utilization of physical memory by allowing non-contiguous allocation of memory to processes.
+- It facilitates the implementation of virtual memory, where pages can be swapped between physical memory and secondary storage (e.g., disk) as needed.
+- It provides memory protection by enforcing access rights and preventing processes from accessing memory that does not belong to them.
+
+In the following subsections, we will explore memory resources and paging in more detail, understanding how they work together to enable efficient memory management in operating systems.
+
+[Memory Resources](/memory-resources-and-paging/memory-resources)
+[Paging](/memory-resources-and-paging/paging)
+
+By mastering the concepts of memory resources and paging, you will gain a deeper understanding of how operating systems manage memory efficiently and provide a seamless experience for running processes.

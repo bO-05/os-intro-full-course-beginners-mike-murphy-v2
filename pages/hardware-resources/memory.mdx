@@ -1,0 +1,47 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Memory
+
+Memory is a critical component of any computer system, and its management is one of the primary responsibilities of an operating system. In this section, we'll explore the various aspects of memory management in operating systems and how they contribute to the overall performance and stability of the system.
+
+## Types of Memory
+
+There are two main types of memory in a computer system:
+
+1. **Primary Memory (RAM)**: This is the main memory that the CPU can access directly. It is fast but volatile, meaning that its contents are lost when the power is turned off.
+
+2. **Secondary Memory (Storage)**: This includes hard drives, SSDs, and other storage devices. It is slower than primary memory but non-volatile, meaning that its contents persist even when the power is turned off.
+
+## Memory Hierarchy
+
+The memory hierarchy is an important concept in computer architecture that describes the different levels of memory in a system, each with its own speed and capacity. The memory hierarchy typically includes:
+
+- **CPU Registers**: The fastest and smallest memory, located directly on the CPU.
+- **Cache Memory**: A small, fast memory located close to the CPU, used to store frequently accessed data.
+- **Main Memory (RAM)**: The primary memory of the system, used to store currently running programs and data.
+- **Secondary Memory (Storage)**: The slowest and largest memory, used for long-term storage of programs and data.
+
+<Callout type="info">
+The goal of the memory hierarchy is to provide the illusion of a large, fast memory by using a combination of small, fast memories and large, slow memories.
+</Callout>
+
+## Memory Management Challenges
+
+Managing memory in an operating system is a complex task that involves several challenges, including:
+
+- **Allocation**: Deciding how to allocate memory to different processes and threads.
+- **Deallocation**: Deciding when and how to free memory that is no longer needed.
+- **Fragmentation**: Dealing with the problem of memory fragmentation, where free memory becomes scattered across the address space.
+- **Protection**: Ensuring that processes cannot access memory that does not belong to them.
+
+We'll explore these challenges in more detail in the [Memory Management](/hardware-resources/memory/memory-management) subsection.
+
+## Virtual Memory
+
+Virtual memory is a technique used by operating systems to provide the illusion of a large, contiguous address space to each process, even when the physical memory is limited and fragmented. It works by using a combination of hardware and software to map virtual addresses to physical addresses, and to swap pages of memory between RAM and secondary storage as needed.
+
+We'll explore virtual memory in more detail in the [Virtual Memory](/hardware-resources/memory/virtual-memory) subsection.
+
+## Conclusion
+
+Memory management is a critical component of any operating system, and its effectiveness can have a significant impact on the performance and stability of the system. By understanding the different types of memory, the memory hierarchy, and the challenges involved in memory management, we can better appreciate the complexity and importance of this aspect of operating system design.

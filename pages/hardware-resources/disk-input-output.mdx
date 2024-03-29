@@ -1,0 +1,63 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Disk Input & Output
+
+Disk input and output (I/O) is a critical component of operating systems, as it enables the storage and retrieval of data on persistent storage devices such as hard disk drives (HDDs) and solid-state drives (SSDs). Efficient disk I/O management is essential for ensuring optimal system performance and responsiveness.
+
+## Disk Attachment
+
+Disks are attached to the motherboard via various interfaces, such as:
+
+- Integrated Drive Electronics (IDE) or Parallel ATA (PATA)
+- Serial ATA (SATA)
+- Small Computer System Interface (SCSI)
+- Serial Attached SCSI (SAS)
+
+<Callout type="info">
+  Modern systems primarily use SATA for consumer-grade hardware and SAS for enterprise-level storage solutions.
+</Callout>
+
+## Magnetic Disks
+
+Magnetic disks, such as HDDs, store data on spinning platters coated with a magnetic surface. The platters are divided into concentric circles called tracks, which are further divided into sectors. Data is read from or written to the platters using read/write heads that move across the surface of the platters.
+
+<Callout type="warning">
+  Magnetic disks are subject to seek time (the time required to move the heads to the appropriate track) and rotational delay (the time required for the desired sector to rotate under the head).
+</Callout>
+
+## Disk Addressing
+
+Disks can be addressed using two methods:
+
+1. Cylinder-Head-Sector (CHS) addressing
+2. Logical Block Addressing (LBA)
+
+CHS addressing uses the physical geometry of the disk, while LBA provides a more flexible and scalable approach by assigning each block a unique address.
+
+## Disk Partitioning
+
+Disks can be divided into multiple logical partitions, each treated as a separate storage unit. Partitioning allows for better organization and isolation of data. The two main partition table types are:
+
+1. Master Boot Record (MBR)
+2. GUID Partition Table (GPT)
+
+<Callout type="info">
+  GPT is becoming increasingly popular due to its support for larger disks and more partitions compared to MBR.
+</Callout>
+
+## Solid-State Drives
+
+Solid-state drives (SSDs) use flash memory to store data, providing faster access times and lower latency compared to magnetic disks. However, SSDs have a limited number of write cycles and require wear-leveling algorithms to extend their lifespan.
+
+<Callout type="warning">
+  SSDs are more expensive per gigabyte compared to HDDs, but prices continue to decrease as technology improves.
+</Callout>
+
+## Subsections
+
+For more detailed information on disk I/O, explore the following subsections:
+
+- [I/O Hardware](/hardware-resources/disk-input-output/io-hardware)
+- [I/O Software](/hardware-resources/disk-input-output/io-software)
+
+By understanding the fundamentals of disk I/O, including disk attachment, magnetic disks, disk addressing, partitioning, and solid-state drives, you can better appreciate the challenges and solutions involved in managing storage devices within an operating system.

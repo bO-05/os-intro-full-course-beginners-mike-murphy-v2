@@ -1,0 +1,75 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Dynamic Memory Allocation
+
+Dynamic memory allocation is a fundamental concept in operating systems that allows programs to request and release memory during runtime. Unlike static memory allocation, where memory is allocated at compile-time, dynamic memory allocation provides flexibility and efficient utilization of system resources.
+
+In operating systems, dynamic memory allocation is typically managed by the kernel through system calls. The kernel maintains a pool of free memory blocks and allocates them to processes as needed. When a process no longer requires the allocated memory, it can release it back to the kernel, making it available for other processes.
+
+## Key Concepts
+
+- **Heap**: The heap is a region of memory used for dynamic memory allocation. It is separate from the stack, which is used for local variables and function calls.
+- **Memory Blocks**: Memory blocks are contiguous chunks of memory that are allocated to processes. They can vary in size depending on the requested amount of memory.
+- **Fragmentation**: Fragmentation occurs when the memory becomes divided into small, non-contiguous blocks, leading to inefficient memory utilization. There are two types of fragmentation:
+  - **Internal Fragmentation**: Occurs when the allocated memory block is larger than the requested size, resulting in wasted memory within the block.
+  - **External Fragmentation**: Occurs when there is sufficient total memory available, but it is not contiguous, making it difficult to allocate larger blocks.
+
+## Memory Allocation Strategies
+
+Operating systems employ various strategies to manage dynamic memory allocation efficiently. Some common strategies include:
+
+- [**First-Fit**](/uml-state-diagrams-and-dynamic-memory-allocation/dynamic-memory-allocation/memory-allocation-algorithms): Allocates the first available block of memory that is large enough to satisfy the request.
+- [**Best-Fit**](/uml-state-diagrams-and-dynamic-memory-allocation/dynamic-memory-allocation/memory-allocation-algorithms): Allocates the smallest available block of memory that is large enough to satisfy the request, minimizing internal fragmentation.
+- [**Worst-Fit**](/uml-state-diagrams-and-dynamic-memory-allocation/dynamic-memory-allocation/memory-allocation-algorithms): Allocates the largest available block of memory, potentially leading to more fragmentation.
+
+<Callout type="info">
+The choice of memory allocation strategy depends on factors such as the expected pattern of memory requests, the trade-off between allocation speed and memory utilization, and the specific requirements of the operating system.
+</Callout>
+
+## Memory Allocation APIs
+
+Operating systems provide APIs for dynamic memory allocation, allowing processes to request and release memory at runtime. The most commonly used functions are:
+
+- [**malloc**](/uml-state-diagrams-and-dynamic-memory-allocation/dynamic-memory-allocation/malloc-and-free): Allocates a specified number of bytes and returns a pointer to the allocated memory.
+- [**free**](/uml-state-diagrams-and-dynamic-memory-allocation/dynamic-memory-allocation/malloc-and-free): Releases the memory block pointed to by a given pointer, making it available for future allocations.
+
+<Steps>
+### Step 1: Requesting Memory
+
+To request memory dynamically, a process calls the `malloc` function, specifying the number of bytes required. For example:
+
+```c
+int* ptr = (int*)malloc(10 * sizeof(int));
+```
+
+### Step 2: Using Allocated Memory
+
+After a successful allocation, the process can use the allocated memory by dereferencing the returned pointer. For example:
+
+```c
+ptr[0] = 42;
+ptr[1] = 100;
+```
+
+### Step 3: Releasing Memory
+
+When the process no longer needs the allocated memory, it should release it back to the kernel using the `free` function. For example:
+
+```c
+free(ptr);
+```
+
+</Steps>
+
+<Callout type="warning">
+Failing to release allocated memory can lead to memory leaks, where memory is no longer used by the program but cannot be allocated to other processes, causing resource exhaustion over time.
+</Callout>
+
+## Conclusion
+
+Dynamic memory allocation is a crucial aspect of operating systems, enabling efficient utilization of memory resources and providing flexibility to processes. By understanding the concepts of dynamic memory allocation, memory allocation strategies, and the APIs provided by the operating system, developers can effectively manage memory in their programs and optimize system performance.
+
+For more details on specific memory allocation algorithms and the usage of `malloc` and `free`, refer to the following subsections:
+
+- [Malloc and Free](/uml-state-diagrams-and-dynamic-memory-allocation/dynamic-memory-allocation/malloc-and-free)
+- [Memory Allocation Algorithms](/uml-state-diagrams-and-dynamic-memory-allocation/dynamic-memory-allocation/memory-allocation-algorithms)

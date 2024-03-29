@@ -1,0 +1,83 @@
+import { Callout, Steps, Step } from "nextra-theme-docs";
+
+# Process Management
+
+Process management is a crucial aspect of operating systems, as it ensures efficient utilization of system resources and enables the execution of multiple tasks simultaneously. In this section, we will explore the fundamentals of process management and delve into its key components.
+
+## What is a Process?
+
+A process is an instance of a program in execution. It represents a basic unit of work within an operating system. Each process has its own memory space, resources, and state information. Processes are created by the operating system when a user or system initiates a program.
+
+<Callout>
+A process is not the same as a program. A program is a static set of instructions, while a process is the actual execution of those instructions.
+</Callout>
+
+## Process States
+
+Processes in an operating system can exist in various states throughout their lifecycle. The most common process states are:
+
+- **New**: The process is being created.
+- **Ready**: The process is waiting to be assigned to a processor.
+- **Running**: The process is being executed by a processor.
+- **Waiting**: The process is waiting for some event to occur (e.g., I/O completion).
+- **Terminated**: The process has finished execution.
+
+Processes transition between these states based on the actions of the operating system and the occurrence of certain events.
+
+## Process Control Block (PCB)
+
+The operating system maintains a data structure called the Process Control Block (PCB) for each process. The PCB contains essential information about the process, including:
+
+- Process ID (PID)
+- Process state
+- Program counter
+- CPU registers
+- Memory limits
+- List of open files
+- Priority
+
+The PCB allows the operating system to manage and track the state of each process effectively.
+
+## Process Creation
+
+Processes are created through a mechanism called process creation. In most operating systems, processes are created using a parent-child relationship. The parent process creates a new child process, which inherits certain attributes from its parent.
+
+The process creation typically involves the following steps:
+
+<Steps>
+### Step 1
+
+The parent process executes a system call to create a new child process.
+
+### Step 2
+
+The operating system allocates a new PCB for the child process and initializes its fields.
+
+### Step 3
+
+The operating system allocates memory space for the child process.
+
+### Step 4
+
+The child process is added to the ready queue, waiting to be scheduled for execution.
+</Steps>
+
+## Process Termination
+
+Processes can terminate due to various reasons, such as:
+
+- Normal completion
+- Error or exception
+- Fatal error
+- Killed by another process
+
+When a process terminates, the operating system deallocates its resources, such as memory and open files, and removes its PCB from the system.
+
+## Subsections
+
+To dive deeper into process management, explore the following subsections:
+
+- [Processes](/process-management/processes): Learn more about the concept of processes and their characteristics.
+- [Process Management Techniques](/process-management/process-management-techniques): Discover various techniques used by operating systems to manage processes efficiently.
+
+By understanding the fundamentals of process management, you'll gain insights into how operating systems handle the execution and coordination of multiple tasks simultaneously.
