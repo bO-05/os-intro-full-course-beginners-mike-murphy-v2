@@ -1,3 +1,4 @@
+```cmd
 Node.js v20.6.1
 
 D:\Repo\Lumentis\os-intro-full-course-beginners-mike-murphy-v2>npx lumentis
@@ -207,11 +208,4 @@ AND WE'RE DONE! Run `npm run dev` to start the docs server once you quit. You ca
     You can learn more about Nextra (what we use for our theme) here: https://nextra.site/docs/docs-theme/start.
 
     If this helped (or for support) do find https://github.com/hrishioa/lumentis and drop a star!
-
-
-
-
-
-
-
-
+```
